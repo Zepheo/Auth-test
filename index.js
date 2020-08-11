@@ -5,6 +5,7 @@ const Koa = require('koa');
 const koaBody = require('koa-body');
 
 const authRouter = require('./authRouter');
+const resourceRouter = require('./resourceRouter');
 const logger = require('./utils');
 
 const app = new Koa();
@@ -14,6 +15,7 @@ app.use(koaBody());
 app.use(logger());
 
 app.use(authRouter.routes());
+app.use(resourceRouter.routes());
 
 http.createServer(app.callback()).listen(3001);
 
