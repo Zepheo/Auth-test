@@ -37,3 +37,23 @@ exports.isModerator = async (ctx, next) => {
     ctx.body = err;
   }
 };
+
+exports.isAdmin = async (ctx, next) => {
+  try {
+    const user = await User.findById(ctx.state.id);
+
+    const roles = await Role.find({ _id: { $in: user.roles } }, (roleError) => {
+      if (roleError) {
+        ctx.body = roleError;
+      }
+    });
+
+    if (!roles.some((r) => r.name === 'admin')) {
+      ctx.body = { message: 'Requires Administrator Role!' };
+      return;
+    }
+    await next();
+  } catch (err) {
+    ctx.body = err;
+  }
+};
