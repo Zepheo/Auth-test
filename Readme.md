@@ -14,13 +14,17 @@ In this first iteration the backend will be the focus.
 So creating a user, signing in and requesting resources will be done with curl/postman
 
 ## To do
-  - Create boilerplate code
-  - Set up database
-  - Create schemas for the database
-  - Connect boilerplate code to the database
-  - Set up the different routes
-  - Implement JWT (verification of JWT)
 
 ## Doing
+  - Multiple routes with different levels of authorization
 
 ## Done
+  - Two routes (one with protected resources and one without)
+  - Implement JWT (verification of JWT)
+  - implement functionallity to sign in
+  - implement functionallity to create new users
+  - Set up the different routes
+  - Connect boilerplate code to the database
+  - Create schemas for the database
+  - Set up database
+  - Create boilerplate code
